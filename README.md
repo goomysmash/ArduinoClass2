@@ -1,4 +1,4 @@
-# Module 2: Programming a clicker counter
+# Class 2: Programming a clicker counter
 ## 1. Attach serial monitor and counter variables
 - New code lines:
   - `int counter = 0;`
