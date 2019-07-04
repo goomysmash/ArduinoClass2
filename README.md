@@ -63,11 +63,47 @@
   - `else{digitalWrite(8, LOW);}`
   - `if (counter == 3){digitalWrite(11, HIGH);}`
   - `else{digitalWrite(11, LOW);}`
-- (Upload and watch serial monitor, click a few times)
+- (Upload and watch LEDs, click a few times)
 - 16 is too high of a number since we're only counting to 3
 ## 10. Change the modulo operator to 3
+- Modify this line and change it to %3 instead of %16
+  - `counter = counter % 3;`
+- (Upload and watch LEDs, click a few times)
+- The 3rd LED doesn't light up
+- Always remember computers like to count from 0, not 1
 ## 11. Debug why it doesn't work (counted from 1 instead of from 0)
+- Modify the the if conditionals to the following
+  - `if (counter == 0){digitalWrite(5, HIGH);}`
+  - `else{digitalWrite(5, LOW);}`
+  - `if (counter == 1){digitalWrite(8, HIGH);}`
+  - `else{digitalWrite(8, LOW);}`
+  - `if (counter == 2){digitalWrite(11, HIGH);}`
+  - `else{digitalWrite(11, LOW);}`
+- (Upload and watch LEDs, click a few times)
+- It works, but can only count to 3. We can count to 8 if we use binary
 ## 12. Add bit read, change modulo to 8, print each bit
-## 13. Add if statements to turn on LEDs based on each bit to count to 8
+- Modify this line and change it to %8 instead of %3
+  - `counter = counter % 8;`
+- New code lines:
+  - `Serial.print("bitRead(counter, 0): ");`
+  - `Serial.println(bitRead(counter, 0));`
+  - `Serial.print("bitRead(counter, 1): ");`
+  - `Serial.println(bitRead(counter, 1));`
+  - `Serial.print("bitRead(counter, 2): ");`
+  - `Serial.println(bitRead(counter, 2));`
+- (Upload and watch serial monitor, click a few times)
+- Notce how the bitRead matches the binary print of the counter variable
+## 13. Uncomment and add if statements to turn on LEDs based on each bit to count to 8
+- New code lines:
+  - `if(bitRead(counter, 0) == 1){digitalWrite(5, HIGH);}`
+  - `else{digitalWrite(5, LOW);}`
+  - `if(bitRead(counter, 1) == 1){digitalWrite(8, HIGH);}`
+  - `else{digitalWrite(8, LOW);}`
+  - `if(bitRead(counter, 2) == 1){digitalWrite(11, HIGH);}`
+  - `else{digitalWrite(11, LOW);}`
+- (Upload and watch LEDs, click past 8)
+- Now our clicker can count up to 8 with only 3 LEDs
+
 ## Problems:
-- push button bounces
+- Push button bounces which causes skips sometimes
+- We will debounce the push button in a future class
