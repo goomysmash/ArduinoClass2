@@ -93,7 +93,7 @@
   - `Serial.println(bitRead(counter, 2));`
 - (Upload and watch serial monitor, click a few times)
 - Notce how the bitRead matches the binary print of the counter variable
-### 13. Uncomment and add if statements to turn on LEDs based on each bit to count to 8
+### 13. Comment out and add if statements to turn on LEDs based on each bit to count to 8
 - New code lines:
   - `if(bitRead(counter, 0) == 1){digitalWrite(5, HIGH);}`
   - `else{digitalWrite(5, LOW);}`
